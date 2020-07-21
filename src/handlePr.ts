@@ -13,6 +13,7 @@ export async function handlePullRequest (context: Context): Promise<void> {
   const {
     admin
   } = config
+  context.log('admin: ', admin);
   if (context.payload.pull_request.draft) {
     context.log('ignore draft PR')
     return
