@@ -6,6 +6,6 @@ default_permissions:
   single_file: read
 single_file_name: .github/assign_to_admin.yml
 name: Assign To Admin
-# url: https://example.com/
-description: Automatically assigns PR review to admin
+url: https://jvalentik.github.io/assign-to-admin
+description: Automatically assigns PR review to a specified person (an admin)
 public: true
