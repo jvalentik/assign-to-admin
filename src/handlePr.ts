@@ -12,22 +12,21 @@ export async function handlePullRequest (context: Context): Promise<void> {
   }
   const {
     admin
-  } = config
+  } = config;
+  context.log('admin: ', admin[0]);
   if (context.payload.pull_request.draft) {
     context.log('ignore draft PR')
     return
   }
-  const owner = context.payload.pull_request.user.login
-  if (admin === owner) {
+  const owner = context.payload.pull_request.user.login as string;
+  if (admin[0] === owner) {
     context.log('submitter same as admin - ignoring')
     return
   }
   try {
-    if (admin) {
-      const params = context.issue({ reviewers: [admin] })
+      const params = context.issue({ reviewers: [admin[0]] })
       const result = await context.github.pulls.createReviewRequest(params)
       context.log(result)
-    }
   } catch (error) {
     context.log(error)
   }
