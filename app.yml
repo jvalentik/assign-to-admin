@@ -1,0 +1,11 @@
+default_events:
+- pull_request
+default_permissions:
+  metadata: read
+  pull_requests: write
+  single_file: read
+single_file_name: .github/assign_to_admin.yml
+name: Assign To Admin
+# url: https://example.com/
+description: Automatically assigns PR review to admin
+public: true
